@@ -1,8 +1,10 @@
 name: langchain
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
+  - python=3.10
+  - conda
   - aiosignal=1.3.1=pyhd8ed1ab_0
   - appdirs=1.4.4=pyh9f0ad1d_0
   - async-timeout=4.0.2=pyhd8ed1ab_0
@@ -167,4 +169,3 @@ dependencies:
     - yarg==0.1.9
     - yarl==1.9.2
     - zipp==3.16.2
-prefix: /opt/anaconda3/envs/langchain
