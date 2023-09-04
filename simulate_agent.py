@@ -2,7 +2,7 @@ from textwrap import indent
 from urllib import response
 import streamlit as st
 import pandas as pd
-from turtle import onclick
+#from turtle import onclick
 import itertools
 from agent_calculation import *
 import pandas as pd
