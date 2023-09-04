@@ -32,7 +32,9 @@ with st.sidebar:
         or st.session_state.get("OPENAI_API_KEY", ""),
         )
 
-LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo',openai_api_key=api_key_input)
+if len(api_key_input) > 0:
+    LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo',openai_api_key=api_key_input)
+    
 
 c30, c31, c32 = st.columns([2.5, 1, 3])
 
