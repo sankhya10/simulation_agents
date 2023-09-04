@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 #from turtle import onclick
 import itertools
-from agent_calculation import *
+
 import pandas as pd
 from streamlit_chat import message
 from streamlit.components.v1 import html
@@ -33,6 +33,7 @@ with st.sidebar:
         )
 
 if len(api_key_input) > 0:
+    from agent_calculation import *
     LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo',openai_api_key=api_key_input)
     
 
