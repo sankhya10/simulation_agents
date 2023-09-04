@@ -264,7 +264,7 @@ if __name__ == "__main__":
                     st.session_state.agent_index += 1
                     if st.session_state.agent_index == 2:
                         with st.spinner("Generating initial summary ..."):
-                            st.session_state.agent_memory, summary = create_initial_summary(st.session_state.agents)
+                            st.session_state.agent_memory, summary = create_initial_summary(st.session_state.agents,api_key_input)
                             file_container = st.expander("Check your Agent Summaries")
                             file_container.write(summary)
                         st.session_state.display_column = True
