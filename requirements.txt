@@ -69,3 +69,4 @@ wheel==0.38.4
 yarg==0.1.9
 yarl==1.9.2
 zipp==3.16.2
+langchain==0.0.239
