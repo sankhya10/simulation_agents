@@ -1,7 +1,8 @@
- #Streamlit Simulation Agents 
- 
- 
-## Run the app on your machine:
+
+
+# Streamlit Simulation Agents 
+
+### Run the app on your machine
 
 #### Step 1: Install the required libraries for the project
 
