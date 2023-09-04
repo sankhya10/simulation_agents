@@ -31,8 +31,8 @@ def relevance_score_fn(score: float) -> float:
     return 1.0 - score / math.sqrt(2)
 
 
-def create_new_memory_retriever():
-    embeddings_model = OpenAIEmbeddings()
+def create_new_memory_retriever(api_key):
+    embeddings_model = OpenAIEmbeddings(openai_api_key=api_key)
     embedding_size = 1536
     index = faiss.IndexFlatL2(embedding_size)
     vectorstore = FAISS(
@@ -49,7 +49,7 @@ def create_new_memory_retriever():
     )
 
 
-def create_initial_summary(user_agents):
+def create_initial_summary(user_agents,api_key):
 
 
     initial_summary= {}    
@@ -63,7 +63,7 @@ def create_initial_summary(user_agents):
 
         agents_memory[each_agent["name"][0]] = GenerativeAgentMemory(
                 llm=LLM,
-                memory_retriever=create_new_memory_retriever(),
+                memory_retriever=create_new_memory_retriever(api_key),
                 verbose=False,
                 reflection_threshold=5,
             )
@@ -72,7 +72,7 @@ def create_initial_summary(user_agents):
                 age=each_agent["age"][0],
                 traits=each_agent["Traits"][0] + ", " + each_agent["gender"][0],  
                 status=each_agent["status"][0], 
-                memory_retriever=create_new_memory_retriever(),
+                memory_retriever=create_new_memory_retriever(api_key),
                 llm=LLM,
                 memory=agents_memory[each_agent["name"][0]],
             )
