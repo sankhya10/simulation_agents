@@ -9,7 +9,7 @@
 pip install -r requirements.txt
 ```
 
-#### Step 2: RUn the app by following command:
+#### Step 2: Run the app by following the command:
 
 
 ```bash
