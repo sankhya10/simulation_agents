@@ -8,6 +8,8 @@ from agent_calculation import *
 import pandas as pd
 from streamlit_chat import message
 from streamlit.components.v1 import html
+import os
+from langchain.chat_models import ChatOpenAI
 
 
 
@@ -17,7 +19,20 @@ st.set_page_config(
     layout="wide",
 )
 
+with st.sidebar:
+        st.markdown(
+            "## How to use\n"
+            "1. Enter your [OpenAI API key](https://platform.openai.com/account/api-keys) below🔑\n")
+        api_key_input = st.text_input(
+        "OpenAI API Key",
+        type="password",
+        placeholder="Paste your OpenAI API key here (sk-...)",
+        help="You can get your API key from https://platform.openai.com/account/api-keys.",  # noqa: E501
+        value=os.environ.get("OPENAI_API_KEY", None)
+        or st.session_state.get("OPENAI_API_KEY", ""),
+        )
 
+LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo',openai_api_key=api_key_input)
 
 c30, c31, c32 = st.columns([2.5, 1, 3])
 
@@ -36,7 +51,8 @@ with c30:
     st.header("")
 
 
-
+if "open_api_key" not in st.session_state:
+    st.session_state.open_api_key = api_key_input
 
 if "agents" not in st.session_state:
     st.session_state.agents = []
