@@ -10,6 +10,7 @@ from streamlit_chat import message
 from streamlit.components.v1 import html
 import os
 from langchain.chat_models import ChatOpenAI
+from agent_calculation import *
 
 
 
@@ -33,8 +34,7 @@ with st.sidebar:
         )
 
 if len(api_key_input) > 0:
-    LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo',openai_api_key=api_key_input)
-    from agent_calculation import *
+    create_llm(api_key_input)
     
 
 c30, c31, c32 = st.columns([2.5, 1, 3])
