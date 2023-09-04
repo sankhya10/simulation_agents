@@ -8,7 +8,8 @@ import pickle
 from datetime import datetime, timedelta
 from typing import List
 from termcolor import colored
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
+from simulate_agent import LLM
 
 from langchain.chat_models import ChatOpenAI
 from langchain.callbacks import get_openai_callback
@@ -23,8 +24,6 @@ from langchain.experimental.generative_agents import (
 )
 
 
-load_dotenv() # Load the API key
-LLM = ChatOpenAI(max_tokens=1500,model_name='gpt-3.5-turbo')
 
 def relevance_score_fn(score: float) -> float:
     return 1.0 - score / math.sqrt(2)
