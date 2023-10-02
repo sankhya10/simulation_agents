@@ -16,5 +16,3 @@ pip install -r requirements.txt
 ```bash
 streamlit run simulate_agent.py
 ```
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://legalchatbota2i2.streamlit.app/)
